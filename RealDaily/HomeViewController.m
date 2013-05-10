@@ -6,11 +6,15 @@
 //  Copyright (c) 2013 Doradori. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "HomeViewController.h"
 #import "ThemeManager.h"
 #import "MenuViewController.h"
 
-@interface ViewController () {
+#import "AppDelegate.h"
+#import "EvernoteSession.h"
+#import "EvernoteUserStore.h"
+
+@interface HomeViewController () {
     IBOutlet UIButton *cl;
     IBOutlet UIButton *memo;
     IBOutlet UIButton *diary;
@@ -23,7 +27,7 @@
 
 @end
 
-@implementation ViewController
+@implementation HomeViewController
 
 @synthesize navigationBarPanGestureRecognizer;
 
@@ -47,6 +51,32 @@
 - (IBAction)share:(id)sender
 {
     NSLog(@"share");
+    
+    EvernoteSession *session = [EvernoteSession sharedSession];
+    NSLog(@"Session host: %@", [session host]);
+    NSLog(@"Session key: %@", [session consumerKey]);
+    NSLog(@"Session secret: %@", [session consumerSecret]);
+    
+    [session authenticateWithViewController:self completionHandler:^(NSError *error) {
+        if (error || !session.isAuthenticated){
+            if (error) {
+                NSLog(@"Error authenticating with Evernote Cloud API: %@", error);
+            }
+            if (!session.isAuthenticated) {
+                NSLog(@"Session not authenticated");
+            }
+        } else {
+            // We're authenticated!
+            EvernoteUserStore *userStore = [EvernoteUserStore userStore];
+            [userStore getUserWithSuccess:^(EDAMUser *user) {
+                // success
+                NSLog(@"Authenticated as %@", [user username]);
+            } failure:^(NSError *error) {
+                // failure
+                NSLog(@"Error getting user: %@", error);
+            } ];
+        }
+    }];
 }
 
 

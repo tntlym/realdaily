@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GHRevealViewController.h"
 
-@interface ViewController : UIViewController
+@interface HomeViewController : UIViewController
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "HomeViewController.h"
+
+#import "EvernoteSession.h"
+#import "ENConstants.h"
 
 @implementation AppDelegate
 
@@ -33,8 +36,25 @@
     
     [self.window makeKeyAndVisible];
     
+    // Evernote API
+    NSString *EVERNOTE_HOST = BootstrapServerBaseURLStringSandbox;
+    NSString *CONSUMER_KEY = @"bluemol-6590";
+    NSString *CONSUMER_SECRET = @"7bb44394705a63be";
+    
+    [EvernoteSession setSharedSessionHost:EVERNOTE_HOST
+                              consumerKey:CONSUMER_KEY
+                           consumerSecret:CONSUMER_SECRET];
+    
 
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    BOOL canHandle = NO;
+    if ([[NSString stringWithFormat:@"en-%@", [[EvernoteSession sharedSession] consumerKey]] isEqualToString:[url scheme]] == YES) {
+        canHandle = [[EvernoteSession sharedSession] canHandleOpenURL:url];
+    }
+    return canHandle;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -57,6 +77,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // Evernote Session handle Become Active
+    [[EvernoteSession sharedSession] handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

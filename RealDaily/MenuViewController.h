@@ -1,15 +1,24 @@
 //
 //  MenuViewController.h
-//  RealDaily
+//  ADVNewsFeeder.h
 //
-//  Created by bluemol on 5/8/13.
-//  Copyright (c) 2013 Doradori. All rights reserved.
+//  Created by Valentin Filip on 09.04.2012.
+//  Copyright (c) 2012 App Design Vault. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@protocol MenuViewControllerDelegate;
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (assign, nonatomic) id<MenuViewControllerDelegate> delegate;
+
+@end
+
+@protocol MenuViewControllerDelegate <NSObject>
+
+-(void)userDidSwitchToControllerAtIndexPath:(NSIndexPath*)index;
 
 @end
