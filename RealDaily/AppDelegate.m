@@ -11,8 +11,11 @@
 
 #import "EvernoteSession.h"
 #import "ENConstants.h"
+#import "EvernoteNoteStore.h"
+#import "EvernoteUserStore.h"
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

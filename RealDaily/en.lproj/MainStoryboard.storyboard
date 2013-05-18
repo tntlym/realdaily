@@ -319,6 +319,7 @@
         <class className="HomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
             <relationships>
+                <relationship kind="action" name="memo:"/>
                 <relationship kind="outlet" name="cl" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="diary" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="memo" candidateClass="UIButton"/>

@@ -63,6 +63,7 @@
 		2C01D399173CF25200FE7F24 /* NSDate+EDAMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C01D363173CF25200FE7F24 /* NSDate+EDAMAdditions.m */; };
 		2C01D39B173CF4DA00FE7F24 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C01D39A173CF4DA00FE7F24 /* StoreKit.framework */; };
 		2C01D39D173CF4DF00FE7F24 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C01D39C173CF4DF00FE7F24 /* Security.framework */; };
+		2C12119217466B1800EBDC26 /* icon_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C12119117466B1800EBDC26 /* icon_4.png */; };
 		2C6293BA1744D5B50020D6C0 /* MemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6293B91744D5B50020D6C0 /* MemoViewController.m */; };
 		2C6293BD1744D92D0020D6C0 /* DiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6293BC1744D92D0020D6C0 /* DiaryViewController.m */; };
 		2C6293C91744DB4C0020D6C0 /* forrest-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6293BF1744DB4C0020D6C0 /* forrest-back-button.png */; };
@@ -282,6 +283,7 @@
 		2C01D363173CF25200FE7F24 /* NSDate+EDAMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+EDAMAdditions.m"; sourceTree = "<group>"; };
 		2C01D39A173CF4DA00FE7F24 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C01D39C173CF4DF00FE7F24 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2C12119117466B1800EBDC26 /* icon_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_4.png; sourceTree = "<group>"; };
 		2C6293B81744D5B50020D6C0 /* MemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoViewController.h; sourceTree = "<group>"; };
 		2C6293B91744D5B50020D6C0 /* MemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoViewController.m; sourceTree = "<group>"; };
 		2C6293BB1744D92D0020D6C0 /* DiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryViewController.h; sourceTree = "<group>"; };
@@ -818,6 +820,7 @@
 		2CF09CA21730CE0A009F2F75 = {
 			isa = PBXGroup;
 			children = (
+				2C12119117466B1800EBDC26 /* icon_4.png */,
 				2C01D2E3173CF25100FE7F24 /* evernote-sdk-ios */,
 				2CF09CB41730CE0A009F2F75 /* RealDaily */,
 				2CF09CAD1730CE0A009F2F75 /* Frameworks */,
@@ -1050,6 +1053,7 @@
 				2C6293E51744DCF10020D6C0 /* purple-menu-bar@2x.png in Resources */,
 				2C6293E61744DCF10020D6C0 /* purple-settings-button.png in Resources */,
 				2C6293E71744DCF10020D6C0 /* purple-settings-button@2x.png in Resources */,
+				2C12119217466B1800EBDC26 /* icon_4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "EvernoteSession.h"
 #import "EvernoteUserStore.h"
+#import "EvernoteNoteStore.h"
 
 
 @interface HomeViewController () {
@@ -133,6 +134,67 @@
 }
 
 
+- (void)createEvernoteNotebook
+{
+    EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
+    NSString *guid = [[NSUserDefaults standardUserDefaults] stringForKey:@"notebook_guid"];
+    NSLog(@"precheck guid: %@", guid);
+    
+    [noteStore getNotebookWithGuid:guid success:^(EDAMNotebook *notebook) {
+        NSLog(@"notebook exist!");
+    } failure:^(NSError *error){
+        // create RealDaily Notebook if it doesn't exist
+        EDAMNotebook *notebook = [[EDAMNotebook alloc]init];
+        notebook.name = @"RealDaily";
+        [noteStore createNotebook:notebook success:^(EDAMNotebook *notebook){
+            NSLog(@"create real daily notebook ok!");
+            NSLog(@"GUID:%@", notebook.guid);
+            
+            [[NSUserDefaults standardUserDefaults] setObject:notebook.guid forKey:@"notebook_guid" ];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+        } failure:^(NSError *error){
+            NSLog(@"create real daily failed with %@", error);
+        }];
+    }];
+}
+
+- (void)evernoteLogin
+{
+    EvernoteSession *session = [EvernoteSession sharedSession];
+    NSLog(@"Session host: %@", [session host]);
+    NSLog(@"Session key: %@", [session consumerKey]);
+    NSLog(@"Session secret: %@", [session consumerSecret]);
+    
+    [session authenticateWithViewController:self completionHandler:^(NSError *error) {
+        if (error || !session.isAuthenticated){
+            if (error) {
+                NSLog(@"Error authenticating with Evernote Cloud API: %@", error);
+            }
+            if (!session.isAuthenticated) {
+                NSLog(@"Session not authenticated");
+            }
+        } else {
+            // We're authenticated! Save User Name
+            EvernoteUserStore *userStore = [EvernoteUserStore userStore];
+            [userStore getUserWithSuccess:^(EDAMUser *user) {
+                // success
+                NSLog(@"Authenticated as %@", [user username]);
+                [[NSUserDefaults standardUserDefaults] setObject:[user username] forKey:@"evernote_user_name" ];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                // Create "RealDaily" notebook
+                [self createEvernoteNotebook];
+                
+                
+            } failure:^(NSError *error) {
+                // failure
+                NSLog(@"Error getting user: %@", error);
+            } ];
+        }
+    }];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     //[self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
@@ -208,7 +270,7 @@
     UIImage *settingsButtonImage = [UIImage imageNamed:@"settings-button.png"];
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.frame = CGRectMake(0.0f, 0.0f, settingsButtonImage.size.width, settingsButtonImage.size.height);
-    //[settingsButton addTarget:view.window.rootViewController action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
+    [settingsButton addTarget:self action:@selector(evernoteLogin) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton setImage:settingsButtonImage forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
