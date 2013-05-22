@@ -31,6 +31,7 @@
     return themeManager;
 }
 
+
 - (void)applyThemeWithMenubarImage:(NSString*)menuBarImg backButtonImage:(NSString*)backBtnImg
 settingButtonImage:(NSString*)settingBtnImg barButtonImage:(NSString*)barBtnImg viewController:(UIViewController*)vc
 {
@@ -60,7 +61,7 @@ settingButtonImage:(NSString*)settingBtnImg barButtonImage:(NSString*)barBtnImg 
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.frame = CGRectMake(0.0f, 0.0f, settingsButtonImage.size.width, settingsButtonImage.size.height);
     [settingsButton setBackgroundImage:barButtonImage forState:UIControlStateNormal];
-    //[settingsButton addTarget:view.window.rootViewController action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
+    [settingsButton addTarget:vc action:@selector(navRightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [settingsButton setImage:settingsButtonImage forState:UIControlStateNormal];
     
     vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];

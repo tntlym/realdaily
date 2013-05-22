@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "RealDaily/CheckListViewController.m"
-         timestampString = "389334606.136087"
+         timestampString = "390892703.024669"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-initWithStyle:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -9,11 +9,39 @@
 #import "CheckListViewController.h"
 #import "ThemeManager.h"
 
+#import "EvernoteSession.h"
+#import "EvernoteUserStore.h"
+#import "EvernoteNoteStore.h"
+
+#define NOTE_CONTENTS @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"><en-note>Hello, world! %@  <br/><en-todo/>An item that I haven't completed yet.<br/> <en-todo checked=\"true\"/>An item that I haven't completed yet2.<br/>    </en-note>"
+
 @interface CheckListViewController ()
 
 @end
 
 @implementation CheckListViewController
+
+- (void)navRightBtnClick
+{
+    NSLog(@"hello world");
+    
+    EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
+    EDAMNote *note = [[EDAMNote alloc] init];
+    [note setTitle:@"Hello Evernote"];
+    [note setContent:[[NSString alloc] initWithFormat:NOTE_CONTENTS, @"I'm A longteam"]];
+    NSString *guid = [[NSUserDefaults standardUserDefaults] stringForKey:@"notebook_guid"];
+    [note setNotebookGuid:guid];
+
+    
+    
+    [noteStore createNote:note success:^(EDAMNote *note) {
+        NSLog(@"Received note guid: %@", [note guid]);
+    }failure:^(NSError *error) {
+        NSLog(@"Create note failed: %@", error);
+    }];
+    
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
