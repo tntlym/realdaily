@@ -50,7 +50,7 @@ settingButtonImage:(NSString*)settingBtnImg barButtonImage:(NSString*)barBtnImg 
     [vc.navigationController.navigationBar setBackgroundImage:menuBarImage forBarMetrics:UIBarMetricsDefault];
 
     backButtonImage = [backButtonImage
-                       resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 5.0f, 0.0f, -2.0f)];
+                       resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 5.0f, 0.0f, 9.0f)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage
                                                       forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsDefault];
