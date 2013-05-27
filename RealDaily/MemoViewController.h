@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemoViewController : UITableViewController
+@interface MemoViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

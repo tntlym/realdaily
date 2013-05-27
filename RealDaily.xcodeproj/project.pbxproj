@@ -171,6 +171,10 @@
 		2CFE06C7173A2A5C00BB1926 /* searchBarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE06C0173A2A5C00BB1926 /* searchBarIcon@2x.png */; };
 		2CFE06C8173A2A5C00BB1926 /* searchTextBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE06C1173A2A5C00BB1926 /* searchTextBG.png */; };
 		2CFE06C9173A2A5C00BB1926 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE06C2173A2A5C00BB1926 /* user.png */; };
+		E240DB111750FC0800556E55 /* DetailMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E240DB101750FC0800556E55 /* DetailMemoViewController.m */; };
+		E240DB1417510FC000556E55 /* MemoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E240DB1317510FC000556E55 /* MemoViewCell.m */; };
+		E292D6541753AF81007EFAC9 /* memo_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E292D6531753AF81007EFAC9 /* memo_box@2x.png */; };
+		E292D6561753AF96007EFAC9 /* memo_box.png in Resources */ = {isa = PBXBuildFile; fileRef = E292D6551753AF96007EFAC9 /* memo_box.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -413,6 +417,12 @@
 		2CFE06C0173A2A5C00BB1926 /* searchBarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBarIcon@2x.png"; sourceTree = "<group>"; };
 		2CFE06C1173A2A5C00BB1926 /* searchTextBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchTextBG.png; sourceTree = "<group>"; };
 		2CFE06C2173A2A5C00BB1926 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		E240DB0F1750FC0800556E55 /* DetailMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMemoViewController.h; sourceTree = "<group>"; };
+		E240DB101750FC0800556E55 /* DetailMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMemoViewController.m; sourceTree = "<group>"; };
+		E240DB1217510FC000556E55 /* MemoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoViewCell.h; sourceTree = "<group>"; };
+		E240DB1317510FC000556E55 /* MemoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoViewCell.m; sourceTree = "<group>"; };
+		E292D6531753AF81007EFAC9 /* memo_box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "memo_box@2x.png"; sourceTree = "<group>"; };
+		E292D6551753AF96007EFAC9 /* memo_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = memo_box.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -667,6 +677,8 @@
 		2C6293BE1744DB4C0020D6C0 /* MemoView */ = {
 			isa = PBXGroup;
 			children = (
+				E292D6531753AF81007EFAC9 /* memo_box@2x.png */,
+				E292D6551753AF96007EFAC9 /* memo_box.png */,
 				2C6293BF1744DB4C0020D6C0 /* forrest-back-button.png */,
 				2C6293C01744DB4C0020D6C0 /* forrest-back-button@2x.png */,
 				2C6293C11744DB4C0020D6C0 /* forrest-background.jpg */,
@@ -751,6 +763,10 @@
 			children = (
 				2C6293B81744D5B50020D6C0 /* MemoViewController.h */,
 				2C6293B91744D5B50020D6C0 /* MemoViewController.m */,
+				E240DB0F1750FC0800556E55 /* DetailMemoViewController.h */,
+				E240DB101750FC0800556E55 /* DetailMemoViewController.m */,
+				E240DB1217510FC000556E55 /* MemoViewCell.h */,
+				E240DB1317510FC000556E55 /* MemoViewCell.m */,
 			);
 			name = MemoView;
 			sourceTree = "<group>";
@@ -1082,6 +1098,8 @@
 				2CFCA246174E0B8D005E98F8 /* icon_cloudy@2x.png in Resources */,
 				2CFCA247174E0B8D005E98F8 /* icon_sunny.png in Resources */,
 				2CFCA248174E0B8D005E98F8 /* icon_sunny@2x.png in Resources */,
+				E292D6541753AF81007EFAC9 /* memo_box@2x.png in Resources */,
+				E292D6561753AF96007EFAC9 /* memo_box.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1170,8 @@
 				2C01D399173CF25200FE7F24 /* NSDate+EDAMAdditions.m in Sources */,
 				2C6293BA1744D5B50020D6C0 /* MemoViewController.m in Sources */,
 				2C6293BD1744D92D0020D6C0 /* DiaryViewController.m in Sources */,
+				E240DB111750FC0800556E55 /* DetailMemoViewController.m in Sources */,
+				E240DB1417510FC000556E55 /* MemoViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

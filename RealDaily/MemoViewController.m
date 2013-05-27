@@ -8,6 +8,7 @@
 
 #import "MemoViewController.h"
 #import "ThemeManager.h"
+#import "MemoViewCell.h"
 
 
 @interface MemoViewController ()
@@ -33,6 +34,9 @@
     
     // Apply Check List Theme
     [[ThemeManager sharedThemeManater] applyThemeWithMenubarImage:@"forrest-menu-bar.png" backButtonImage:@"forrest-back-button.png" settingButtonImage:@"forrest-settings-button.png" barButtonImage:@"forrest-bar-button.png" viewController:self];
+    
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-background.png"]];
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,26 +55,69 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (indexPath.row % 2 == 1) {
+        
+        static NSString *CellIdentifier = @"MemoCell";
+        MemoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+        // Configure the cell...
+        
+        if (!cell) {
+            cell = [[MemoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        cell.userInteractionEnabled = YES;
+        
+        return cell;
+    }
+    else {
+        static NSString *CellIdentifier = @"SpaceCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+        // Configure the cell...
+        
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.backgroundColor = [UIColor clearColor];
+        }
+        
+        cell.userInteractionEnabled = NO;
+
+        return cell;
+    }
+
     
-    // Configure the cell...
+    /*
+    if (indexPath.row % 2 == 0) {
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
+    else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    */
     
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row % 2 == 1) {
+        return 50.0;
+    }
+    else {
+        return 10.0;
+    }
 }
 
 /*
