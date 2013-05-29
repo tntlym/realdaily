@@ -63,7 +63,8 @@
 		2C01D399173CF25200FE7F24 /* NSDate+EDAMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C01D363173CF25200FE7F24 /* NSDate+EDAMAdditions.m */; };
 		2C01D39B173CF4DA00FE7F24 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C01D39A173CF4DA00FE7F24 /* StoreKit.framework */; };
 		2C01D39D173CF4DF00FE7F24 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C01D39C173CF4DF00FE7F24 /* Security.framework */; };
-		2C12119217466B1800EBDC26 /* icon_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C12119117466B1800EBDC26 /* icon_4.png */; };
+		2C26178A1755C92000B6457A /* CheckListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2617891755C92000B6457A /* CheckListViewCell.m */; };
+		2C26178E1755E9C900B6457A /* SpendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C26178D1755E9C900B6457A /* SpendViewController.m */; };
 		2C6293BA1744D5B50020D6C0 /* MemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6293B91744D5B50020D6C0 /* MemoViewController.m */; };
 		2C6293BD1744D92D0020D6C0 /* DiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6293BC1744D92D0020D6C0 /* DiaryViewController.m */; };
 		2C6293C91744DB4C0020D6C0 /* forrest-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6293BF1744DB4C0020D6C0 /* forrest-back-button.png */; };
@@ -294,7 +295,10 @@
 		2C01D363173CF25200FE7F24 /* NSDate+EDAMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+EDAMAdditions.m"; sourceTree = "<group>"; };
 		2C01D39A173CF4DA00FE7F24 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C01D39C173CF4DF00FE7F24 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		2C12119117466B1800EBDC26 /* icon_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_4.png; sourceTree = "<group>"; };
+		2C2617881755C92000B6457A /* CheckListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckListViewCell.h; sourceTree = "<group>"; };
+		2C2617891755C92000B6457A /* CheckListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckListViewCell.m; sourceTree = "<group>"; };
+		2C26178C1755E9C900B6457A /* SpendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpendViewController.h; sourceTree = "<group>"; };
+		2C26178D1755E9C900B6457A /* SpendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpendViewController.m; sourceTree = "<group>"; };
 		2C6293B81744D5B50020D6C0 /* MemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoViewController.h; sourceTree = "<group>"; };
 		2C6293B91744D5B50020D6C0 /* MemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoViewController.m; sourceTree = "<group>"; };
 		2C6293BB1744D92D0020D6C0 /* DiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryViewController.h; sourceTree = "<group>"; };
@@ -674,6 +678,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		2C26178B1755E98A00B6457A /* SpendView */ = {
+			isa = PBXGroup;
+			children = (
+				2C26178C1755E9C900B6457A /* SpendViewController.h */,
+				2C26178D1755E9C900B6457A /* SpendViewController.m */,
+			);
+			name = SpendView;
+			sourceTree = "<group>";
+		};
 		2C6293BE1744DB4C0020D6C0 /* MemoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,6 +767,8 @@
 			children = (
 				2CEBD3A317314907006575ED /* CheckListViewController.h */,
 				2CEBD3A417314907006575ED /* CheckListViewController.m */,
+				2C2617881755C92000B6457A /* CheckListViewCell.h */,
+				2C2617891755C92000B6457A /* CheckListViewCell.m */,
 			);
 			name = CheckListView;
 			sourceTree = "<group>";
@@ -857,7 +872,6 @@
 		2CF09CA21730CE0A009F2F75 = {
 			isa = PBXGroup;
 			children = (
-				2C12119117466B1800EBDC26 /* icon_4.png */,
 				2C01D2E3173CF25100FE7F24 /* evernote-sdk-ios */,
 				2CF09CB41730CE0A009F2F75 /* RealDaily */,
 				2CF09CAD1730CE0A009F2F75 /* Frameworks */,
@@ -893,6 +907,7 @@
 				2CEBD3DC1734C242006575ED /* Theme */,
 				2CEBD3941730D2BA006575ED /* DiaryView */,
 				2CEBD3931730D2AB006575ED /* MemoView */,
+				2C26178B1755E98A00B6457A /* SpendView */,
 				2CEBD3921730D28C006575ED /* CheckListView */,
 				2CF09CBD1730CE0A009F2F75 /* AppDelegate.h */,
 				2CF09CBE1730CE0A009F2F75 /* AppDelegate.m */,
@@ -1090,7 +1105,6 @@
 				2C6293E51744DCF10020D6C0 /* purple-menu-bar@2x.png in Resources */,
 				2C6293E61744DCF10020D6C0 /* purple-settings-button.png in Resources */,
 				2C6293E71744DCF10020D6C0 /* purple-settings-button@2x.png in Resources */,
-				2C12119217466B1800EBDC26 /* icon_4.png in Resources */,
 				2CFCA23D174E0557005E98F8 /* bg_3@2x.png in Resources */,
 				2CFCA23E174E0557005E98F8 /* bg_3.png in Resources */,
 				2CFCA240174E0799005E98F8 /* diary_board.png in Resources */,
@@ -1172,6 +1186,8 @@
 				2C6293BD1744D92D0020D6C0 /* DiaryViewController.m in Sources */,
 				E240DB111750FC0800556E55 /* DetailMemoViewController.m in Sources */,
 				E240DB1417510FC000556E55 /* MemoViewCell.m in Sources */,
+				2C26178A1755C92000B6457A /* CheckListViewCell.m in Sources */,
+				2C26178E1755E9C900B6457A /* SpendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

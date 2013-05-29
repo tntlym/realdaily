@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckListViewController : UITableViewController
+@interface CheckListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

@@ -1,19 +1,19 @@
 //
-//  DetailMemoViewController.m
+//  SpendViewController.m
 //  RealDaily
 //
-//  Created by Joey Liang on 5/25/13.
+//  Created by bluemol on 5/29/13.
 //  Copyright (c) 2013 Doradori. All rights reserved.
 //
 
-#import "DetailMemoViewController.h"
+#import "SpendViewController.h"
 #import "ThemeManager.h"
 
-@interface DetailMemoViewController ()
+@interface SpendViewController ()
 
 @end
 
-@implementation DetailMemoViewController
+@implementation SpendViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,8 +29,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // Apply Check List Theme
-    [[ThemeManager sharedThemeManater] applyThemeWithMenubarImage:@"forrest-menu-bar.png" backButtonImage:@"forrest-back-button.png" settingButtonImage:@"forrest-settings-button.png" barButtonImage:@"forrest-bar-button.png" viewController:self];
+        [[ThemeManager sharedThemeManater] applyThemeWithMenubarImage:@"cl-menu-bar.png" backButtonImage:@"cl-back-button.png" settingButtonImage:@"cl-settings-button.png" barButtonImage:@"cl-bar-button.png" viewController:self];
 }
 
 - (void)didReceiveMemoryWarning
